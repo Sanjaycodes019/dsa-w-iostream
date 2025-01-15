@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void deleteElement(int arr[], int& n, int element) {
+void deleteElement(int arr[], int& n, int element) { //n is passed as a reference to decrease the value of n at the last, after deletion
     int pos = -1; 
     for (int i = 0; i < n; i++) {
         if (arr[i] == element) {
