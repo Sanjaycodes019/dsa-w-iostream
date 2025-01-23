@@ -16,6 +16,7 @@ void leftRotate(int* nums, int numsSize, int k) {
         nums[i] = nums[i + k];
     }
 
+    // Copy the elements from the temporary array back to the original array
     for (int i = 0; i < k; i++) {
         nums[numsSize - k + i] = temp[i];
     }

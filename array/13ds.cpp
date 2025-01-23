@@ -1,10 +1,10 @@
-// left rotate the array by k place, right 
+// right rotate the array by k times
 // optimal
 
 #include <iostream>
 using namespace std;
 
-void rotate(int* nums, int numsSize, int k) {
+void rightrotate(int* nums, int numsSize, int k) {
     k = k % numsSize; 
     if (k == 0) return;
 
@@ -30,7 +30,7 @@ int main() {
     int numsSize = sizeof(nums) / sizeof(nums[0]);
     int k = 3;
 
-    rotate(nums, numsSize, k);
+    rightrotate(nums, numsSize, k);
 
     cout << "Rotated array: ";
     for (int i = 0; i < numsSize; i++) {
