@@ -1,121 +1,100 @@
-//implementation of a singly linkedlist
 #include <bits/stdc++.h>
 using namespace std;
 
-class LinkedList {
+class Node {
 public:
-    struct Node {
-        int data;
-        Node* next;
-        Node(int val) : data(val), next(nullptr) {}
-    };
+    int data;
+    Node* next;
 
+    Node(int data) {
+        this->data = data;
+        this->next = NULL;
+    }
+};
+
+class LinkedList {
+private:
     Node* head;
 
-    LinkedList() {
-        head = nullptr;
-    }
+public:
+    LinkedList() { head = NULL; }
 
-    void insertAtHead(int value) {
-        Node* newNode = new Node(value);
+    // Insert at the beginning
+    void insertBeginning(int data) {
+        Node* newNode = new Node(data);
         newNode->next = head;
         head = newNode;
     }
 
-    void insertAtTail(int value) {
-        Node* newNode = new Node(value);
-        if (head == nullptr) {
+    // Insert at the end
+    void insertEnd(int data) {
+        Node* newNode = new Node(data);
+        if (head == NULL) {
             head = newNode;
             return;
         }
         Node* temp = head;
-        while (temp->next) temp = temp->next;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
         temp->next = newNode;
     }
 
-    void deleteAtHead() {
-        if (head == nullptr) return;
-        Node* temp = head;
-        head = head->next;
-        delete temp;
-    }
-
-    void deleteAtTail() {
-        if (head == nullptr) return;
-        if (head->next == nullptr) {
-            delete head;
-            head = nullptr;
+    // Delete by value
+    void deleteByValue(int key) {
+        if (head == NULL) return;
+        if (head->data == key) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
             return;
         }
         Node* temp = head;
-        while (temp->next->next) temp = temp->next;
-        delete temp->next;
-        temp->next = nullptr;
+        while (temp->next != NULL && temp->next->data != key) {
+            temp = temp->next;
+        }
+        if (temp->next == NULL) return;
+        Node* toDelete = temp->next;
+        temp->next = temp->next->next;
+        delete toDelete;
     }
 
-    bool search(int value) {
+    // Search for an element
+    bool search(int key) {
         Node* temp = head;
-        while (temp) {
-            if (temp->data == value) return true;
+        while (temp != NULL) {
+            if (temp->data == key) return true;
             temp = temp->next;
         }
         return false;
     }
 
-    void update(int oldValue, int newValue) {
+    // Traverse and print
+    void traverse() {
         Node* temp = head;
-        while (temp) {
-            if (temp->data == oldValue) {
-                temp->data = newValue;
-                return;
-            }
+        while (temp != NULL) {
+            cout << temp->data << " ";
             temp = temp->next;
         }
-    }
-
-    void reverse() {
-        Node *prev = nullptr, *curr = head, *next = nullptr;
-        while (curr) {
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
-        }
-        head = prev;
-    }
-
-    void display() {
-        Node* temp = head;
-        while (temp) {
-            cout << temp->data << " -> ";
-            temp = temp->next;
-        }
-        cout << "NULL" << endl;
+        cout << endl;
     }
 };
 
 int main() {
     LinkedList list;
-    list.insertAtHead(10);
-    list.insertAtHead(20);
-    list.insertAtTail(30);
-    list.display();
-
-    list.deleteAtHead();
-    list.display();
-
-    list.insertAtTail(40);
-    list.insertAtTail(50);
-    list.deleteAtTail();
-    list.display();
-
-    cout << "Search 30: " << (list.search(30) ? "Found" : "Not Found") << endl;
-
-    list.update(30, 99);
-    list.display();
-
-    list.reverse();
-    list.display();
-
+    list.insertEnd(10);
+    list.insertEnd(20);
+    list.insertEnd(30);
+    list.insertBeginning(5);
+    
+    cout << "Linked List: ";
+    list.traverse();
+    
+    cout << "Deleting 20..." << endl;
+    list.deleteByValue(20);
+    list.traverse();
+    
+    cout << "Searching for 10: " << (list.search(10) ? "Found" : "Not Found") << endl;
+    
     return 0;
 }

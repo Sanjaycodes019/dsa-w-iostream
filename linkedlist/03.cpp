@@ -1,5 +1,3 @@
-//implementation of singly linkedlist with traversal
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -7,7 +5,6 @@ class Node {
 public:
     int data;
     Node* next;
-
     Node(int data) {
         this->data = data;
         this->next = NULL;
@@ -15,32 +12,39 @@ public:
 };
 
 class LinkedList {
-private:
-    Node* head;
-
 public:
-    LinkedList() {
-        head = NULL;
-    }
+    Node* head;
+    LinkedList() { head = NULL; }
 
-    // Insert at the end
     void insertEnd(int data) {
         Node* newNode = new Node(data);
-        if (head == NULL) {
+        if (!head) {
             head = newNode;
             return;
         }
         Node* temp = head;
-        while (temp->next != NULL) {
+        while (temp->next) {
             temp = temp->next;
         }
         temp->next = newNode;
     }
 
-    // Traverse and print
+    void reverse() {
+        Node* prev = NULL;
+        Node* current = head;
+        Node* next = NULL;
+        while (current) {
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
+
     void traverse() {
         Node* temp = head;
-        while (temp != NULL) {
+        while (temp) {
             cout << temp->data << " ";
             temp = temp->next;
         }
@@ -50,12 +54,16 @@ public:
 
 int main() {
     LinkedList list;
-    list.insertEnd(10);
-    list.insertEnd(20);
-    list.insertEnd(30);
-    list.insertEnd(40);
+    list.insertEnd(1);
+    list.insertEnd(2);
+    list.insertEnd(3);
+    list.insertEnd(4);
+    
+    cout << "Original List: ";
+    list.traverse();
 
-    cout << "Linked List: ";
+    list.reverse();
+    cout << "Reversed List: ";
     list.traverse();
 
     return 0;
