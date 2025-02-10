@@ -1,3 +1,4 @@
+//reversal and traversal
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,4 +1,4 @@
-// bruteforce method
+// bruteforce method (middle)
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,3 +1,4 @@
+//insertion and deletion
 #include <bits/stdc++.h>
 using namespace std;
 
