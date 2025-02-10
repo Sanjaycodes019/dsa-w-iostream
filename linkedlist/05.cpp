@@ -1,4 +1,3 @@
-//middle of linkedlist (optimised)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,18 +11,27 @@ public:
     }
 };
 
-// Function to find the middle of the linked list
+// Function to find middle using count method
 Node* findMiddle(Node* head) {
     if (head == NULL) return NULL;
 
-    Node* slow = head;
-    Node* fast = head;
+    int count = 0;
+    Node* temp = head;
 
-    while (fast != NULL && fast->next != NULL) {
-        slow = slow->next;
-        fast = fast->next->next;
+    // Step 1: Count total nodes
+    while (temp != NULL) {
+        count++;
+        temp = temp->next;
     }
-    return slow;  // Middle node
+
+    int middleIndex = count / 2; // If even, this gives second middle (0-based index)
+
+    // Step 2: Traverse again to middle node
+    temp = head;
+    for (int i = 0; i < middleIndex; i++) {
+        temp = temp->next;
+    }
+    return temp;  // Middle node
 }
 
 // Driver Code
