@@ -1,6 +1,5 @@
 /* 
 Queue:
-
 Definition: A linear FIFO (First In, First Out) data structure.
 
 Enqueue: Add at rear.

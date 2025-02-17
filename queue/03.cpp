@@ -10,7 +10,6 @@ public:
     void push(int x) {
         q1.push(x);
     }
-
     void pop() {
         if (q1.empty()) return;
         
