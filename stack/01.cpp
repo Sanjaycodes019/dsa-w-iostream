@@ -22,7 +22,7 @@ public:
         arr[++top] = value;
     }
 
-    // Pop an element from the stack
+    // Pop an element from the stack 
     int pop() {
         if(top == -1) {
             cout << "Stack Underflow!" << endl;
