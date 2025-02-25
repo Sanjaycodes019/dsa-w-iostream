@@ -1,6 +1,4 @@
 // deleting the tail
-
-// removing head
 #include<bits/stdc++.h>
 using namespace std;
 
