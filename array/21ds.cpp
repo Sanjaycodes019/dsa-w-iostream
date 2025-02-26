@@ -1,2 +1,1 @@
-// intersection
-
+// intersection, two array
