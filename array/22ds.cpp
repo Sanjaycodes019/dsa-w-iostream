@@ -1,3 +1,5 @@
+// finding missing number
+// all 4 approaches
 #include<bits/stdc++.h>
 using namespace std;
 
