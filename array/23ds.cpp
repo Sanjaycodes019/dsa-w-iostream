@@ -1,4 +1,5 @@
 // Max Consecutive number of 1's
+// bruteforce approach
 #include <bits/stdc++.h>
 using namespace std;
 int findMaxConsecutiveOnes(int* nums, int numsSize) {
