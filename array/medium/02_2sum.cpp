@@ -33,7 +33,6 @@ vector<int> twoSum(vector<int>& arr, int tar) {
     return ans;
 }
 
-
 int main() {
     vector<int> nums = {2, 7, 11, 15};
     int target = 9;
