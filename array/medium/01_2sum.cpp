@@ -1,23 +1,25 @@
-// optimal approach
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> numMap;
+vector<int> twoSum(vector<int>& arr, int tar) {
+    unordered_map<int, int> m;
+    vector<int> ans;
     
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
+    for (int i = 0; i < arr.size(); i++) {
+        int first = arr[i];
+        int sec = tar - first;
 
-        if (numMap.find(complement) != numMap.end()) {
-            return {numMap[complement], i};
+        if (m.find(sec) != m.end()) {
+            ans.push_back(i);
+            ans.push_back(m[sec]);
+            break;
         }
-
-        numMap[nums[i]] = i;
+        m[first] = i;
     }
-
-    return {}; // Return an empty vector if no solution is found
+    return ans;
 }
 
+// Example usage
 int main() {
     vector<int> nums = {2, 7, 11, 15};
     int target = 9;
