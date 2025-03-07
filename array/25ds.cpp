@@ -1,4 +1,4 @@
-// optimal 
+// optimal, finding single number while others are repeated 
 #include <bits/stdc++.h>
 using namespace std;
 
