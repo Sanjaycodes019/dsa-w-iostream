@@ -1,6 +1,8 @@
 // delete head in the Doubly linkedlist
 #include <bits/stdc++.h>
 using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 class Node {
 public:
@@ -15,61 +17,48 @@ public:
     }
 };
 
-class DoublyLinkedList {
-public:
-    Node* head;
+Node* deleteHead(Node* head) {
+    if (!head) return nullptr;  // If the list is empty, return nullptr
 
-    DoublyLinkedList() {
-        head = nullptr;
-    }
+    Node* temp = head;   // Store current head
+    head = head->next;   // Move head to the next node
 
-    void insertAtHead(int val) {
-        Node* newNode = new Node(val);
-        if (head) {
-            newNode->next = head;
-            head->prev = newNode;
-        }
-        head = newNode;
-    }
+    if (head) head->prev = nullptr;  // If new head exists, update its prev pointer
 
-    void deleteHead() {
-        if (!head) return;  // If list is empty, return
-        Node* temp = head;
-        head = head->next;  // Move head to next node
-        if (head) head->prev = nullptr;  // If new head exists, update prev
-        delete temp;  // Free memory of old head
-    }
+    delete temp;  // Free memory of old head
+    return head;  // Return the new head
+}
 
-    void printList() {
-        Node* temp = head;
-        while (temp) {
-            cout << temp->data << " ";
-            temp = temp->next;
-        }
-        cout << endl;
+void printList(Node* head) {
+    Node* temp = head;
+    while (temp) {
+        cout << temp->data << " ";
+        temp = temp->next;
     }
-};
+    cout << endl;
+}
 
 int main() {
-    DoublyLinkedList dll;
-    dll.insertAtHead(3);
-    dll.insertAtHead(2);
-    dll.insertAtHead(1);
+    // Creating a manually linked list: 1 <-> 2 <-> 3 <-> 4
+    Node* head = new Node(1);
+    Node* second = new Node(2);
+    Node* third = new Node(3);
+    Node* fourth = new Node(4);
+
+    head->next = second;
+    second->prev = head;
+    second->next = third;
+    third->prev = second;
+    third->next = fourth;
+    fourth->prev = third;
 
     cout << "Original List: ";
-    dll.printList();
+    printList(head);
 
-    dll.deleteHead();
+    // Deleting the head
+    head = deleteHead(head);
     cout << "After Deleting Head: ";
-    dll.printList();
-
-    dll.deleteHead();
-    cout << "After Deleting Head Again: ";
-    dll.printList();
-
-    dll.deleteHead();
-    cout << "After Deleting Head Again: ";
-    dll.printList();
+    printList(head);
 
     return 0;
 }
