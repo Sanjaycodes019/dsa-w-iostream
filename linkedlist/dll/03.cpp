@@ -18,7 +18,7 @@ public:
 };
 
 Node* deleteHead(Node* head) {
-    if (!head) return nullptr;  // If the list is empty, return nullptr
+    if (!head) return nullptr;
 
     Node* temp = head;   // Store current head
     head = head->next;   // Move head to the next node
