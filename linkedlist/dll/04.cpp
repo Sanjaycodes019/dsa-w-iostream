@@ -36,7 +36,7 @@ Node* deleteNode(Node* head, int key) {
     // If key is not found
     if (!temp) return head;
 
-    // Case 2: If the node is in the middle or end
+    // Case 2: If the node is in the middle or end.
     if (temp->next) temp->next->prev = temp->prev;
     if (temp->prev) temp->prev->next = temp->next;
 
