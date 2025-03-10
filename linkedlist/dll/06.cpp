@@ -8,14 +8,12 @@ public:
     int data;
     Node* next;
     Node* prev;
-    
     Node(int val) {
         data = val;
         next = NULL;
         prev = NULL;
     }
 };
-
 // Function to reverse the Doubly Linked List
 Node* reverseDLL(Node* head) {
     Node* temp = NULL;
