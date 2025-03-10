@@ -26,7 +26,7 @@ Node* deleteHead(Node* head) {
     if (head) head->prev = nullptr;  // If new head exists, update its prev pointer
 
     delete temp;  // Free memory of old head
-    return head;  // Return the new head
+    return head;  
 }
 
 void printList(Node* head) {
