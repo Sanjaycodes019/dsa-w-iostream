@@ -13,7 +13,6 @@ int maxSubarraySum(int arr[], int n) {
             maxSum = max(maxSum, sum);
         }
     }
-    
     return maxSum;
 }
 
