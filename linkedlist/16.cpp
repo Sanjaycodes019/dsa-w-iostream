@@ -1,0 +1,2 @@
+// palindrome check ( optimised )
+
