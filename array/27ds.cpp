@@ -11,7 +11,7 @@ int kadaneMaxSubarraySum(int arr[], int n) {
         maxSum = max(maxSum, currentSum);
         
         if (currentSum < 0)
-            currentSum = 0; // Reset if negative
+            currentSum = 0; //Reset if negative
     }
     return maxSum;
 }
