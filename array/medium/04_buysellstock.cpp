@@ -12,9 +12,9 @@ int maxProfit(vector<int>& prices) {
     int n = prices.size();
 
     for(int i = 0; i < n; i++) {
-        int cost = prices[i] - mini;
-        maxProfit = max(maxProfit, cost);
-        mini = min(mini, prices[i]);
+        int cost = prices[i] - mini;  // cost of the day
+        maxProfit = max(maxProfit, cost); // maximum profit of that day
+        mini = min(mini, prices[i]); // update the minimum
     }
     return maxProfit;
 }
