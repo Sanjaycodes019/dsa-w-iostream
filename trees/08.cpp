@@ -1,4 +1,4 @@
-// optimal bruteforce
+// optimal balanced or not
 #include <bits/stdc++.h>
 using namespace std;
 
